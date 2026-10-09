@@ -1,0 +1,7 @@
+<?php
+// ===== 여기만 수정하세요 =====
+$ADMIN_PASSWORD = 'dmswns5050';        // 접수 목록 보기 비밀번호 (꼭 바꾸세요)
+$NOTIFY_EMAIL   = '';                       // 접수 알림 받을 이메일 (비워두면 메일 안 보냄)
+// ============================
+date_default_timezone_set('Asia/Seoul');
+$DATA_FILE = __DIR__ . '/data/leads.csv';

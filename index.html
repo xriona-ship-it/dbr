@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DBR커뮤니케이션 | 인테리어·줄눈·탄성·집수리 홈페이지 제작 · 네이버 키워드광고</title>
+<meta name="description" content="인테리어, 줄눈, 탄성코트, 집수리 업체를 위한 간단한 홈페이지 제작과 네이버 키워드광고, AI 마케팅. 연락처만 남기시면 먼저 연락드립니다.">
+<meta property="og:title" content="DBR커뮤니케이션">
+<meta property="og:description" content="시공 업체 전문 홈페이지 제작 · 네이버 키워드광고 · AI 마케팅">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: 타일과 줄눈(grout) 그리드를 모티프로 한 한 페이지 랜딩 — 섹션 = 타일 한 장, 사이 간격 = 줄눈 */
+:root{
+  --ink:#16202e;        /* 본문 진한 남색 */
+  --paper:#f3f4f1;      /* 배경: 백시멘트 톤 */
+  --tile:#ffffff;       /* 타일 면 */
+  --grout:#d9dcd6;      /* 줄눈 라인 */
+  --muted:#5b6573;
+  --accent:#e2a21b;     /* 공구 손잡이 같은 머스타드 */
+  --accent-ink:#1a1405;
+  --deep:#1f3a5a;       /* 신뢰감 있는 블루 */
+  --naver:#03a94d;
+  --display:"Black Han Sans","IBM Plex Sans KR",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#e8ebef;--paper:#10161f;--tile:#18212d;--grout:#2a3544;--muted:#9aa5b3;
+  --accent:#f0b43a;--accent-ink:#1a1405;--deep:#8fb6e0;--naver:#2fcf74;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#e8ebef;--paper:#10161f;--tile:#18212d;--grout:#2a3544;--muted:#9aa5b3;
+  --accent:#f0b43a;--accent-ink:#1a1405;--deep:#8fb6e0;--naver:#2fcf74;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{text-wrap:balance;line-height:1.25;margin:0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.01em}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;color:var(--deep);text-transform:uppercase}
+p{margin:0}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--grout)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{display:inline-grid;grid-template-columns:1fr 1fr;gap:2px;width:22px;height:22px;background:var(--grout);padding:2px;border-radius:3px}
+.logo i b{background:var(--deep);border-radius:1px}.logo i b:nth-child(2){background:var(--accent)}
+.menu{display:flex;gap:22px;font-size:.95rem}
+.menu a{text-decoration:none;color:var(--muted)}.menu a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 1rem var(--body);padding:12px 20px;border-radius:6px;border:0;cursor:pointer;text-decoration:none;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+@media (max-width:760px){.menu{display:none}.nav .btn{padding:9px 14px;font-size:.9rem}}
+
+/* hero */
+.hero{padding-block:64px 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.6vw,3.9rem);letter-spacing:-.02em}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 55%,transparent) 62%)}
+.hero .lead{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:34em}
+.hero .cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.chips{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.85rem;padding:5px 12px;border-radius:99px;background:var(--tile);border:1px solid var(--grout)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:40px}}
+
+/* 네이버 검색 결과 목업 */
+.serp{background:var(--tile);border:1px solid var(--grout);border-radius:12px;padding:18px;box-shadow:0 18px 40px -24px rgba(16,30,50,.35);min-width:0}
+.sbar{display:flex;align-items:center;gap:10px;border:2px solid var(--naver);border-radius:8px;padding:9px 12px;font-weight:500}
+.sbar span{color:var(--naver);font-family:var(--display);font-size:1.1rem}
+.sbar .q{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.typed::after{content:"|";animation:blink 1s steps(1) infinite;color:var(--naver);margin-left:1px}
+@keyframes blink{50%{opacity:0}}
+.plabel{margin-top:14px;font-size:.78rem;color:var(--muted);display:flex;justify-content:space-between}
+.ad{margin-top:8px;padding:12px;border-radius:8px;border:1px solid var(--grout);display:grid;gap:2px}
+.ad.mine{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--tile));position:relative}
+.ad.mine::after{content:"우리 고객사";position:absolute;top:-10px;right:10px;font-size:.72rem;font-weight:700;background:var(--accent);color:var(--accent-ink);padding:1px 8px;border-radius:99px}
+.ad .t{font-weight:700;color:var(--deep)}
+.ad .u{font-family:var(--mono);font-size:.78rem;color:var(--naver)}
+.ad .d{font-size:.86rem;color:var(--muted)}
+.ad.dim{opacity:.55}
+
+/* 섹션 공통 */
+section.block{padding-block:72px}
+.head{display:grid;gap:12px;margin-bottom:36px;max-width:42em}
+.head p{color:var(--muted);font-size:1.05rem}
+
+/* 회사소개 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about .big{font-size:1.25rem;font-weight:500;line-height:1.75}
+.about .big strong{color:var(--deep)}
+.facts{display:grid;gap:1px;background:var(--grout);border:1px solid var(--grout);border-radius:10px;overflow:hidden}
+.facts div{background:var(--tile);padding:18px 20px;display:grid;grid-template-columns:7.5em 1fr;gap:12px}
+.facts dt{font-weight:700;color:var(--deep)}.facts dd{margin:0;color:var(--muted)}
+@media (max-width:760px){.about{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:2px}}
+
+/* 서비스 = 타일 그리드 (gap이 줄눈) */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--grout);padding:6px;border-radius:14px}
+.tile{background:var(--tile);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tile .tag{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.tile h3{font-size:1.35rem;font-weight:700}
+.tile p{color:var(--muted)}
+.tile ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:.95rem}
+.tile li{display:flex;gap:8px}.tile li::before{content:"";flex:none;width:8px;height:8px;margin-top:.62em;background:var(--accent);border-radius:1px}
+.tile.ai{background:var(--deep);color:var(--paper)}
+.tile.ai p,.tile.ai .tag{color:color-mix(in srgb,var(--paper) 78%,var(--deep))}
+@media (max-width:900px){.tiles{grid-template-columns:1fr}}
+
+/* AI 데모 */
+.aidemo{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--tile);border:1px solid var(--grout);border-radius:12px;padding:22px;min-width:0}
+.panel h4{margin:0 0 12px;font-size:1rem}
+.trade{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.trade button{font:500 .92rem var(--body);padding:8px 14px;border-radius:99px;border:1px solid var(--grout);background:var(--paper);color:var(--ink);cursor:pointer}
+.trade button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.kw{display:grid;gap:6px;font-size:.95rem}
+.kw div{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;background:var(--paper);border-radius:6px}
+.kw span:last-child{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.copy{font-size:.95rem;display:grid;gap:10px}
+.copy .t{font-weight:700;color:var(--deep);font-size:1.05rem}
+.note{margin-top:10px;font-size:.8rem;color:var(--muted)}
+@media (max-width:760px){.aidemo{grid-template-columns:1fr}}
+
+/* 업종 */
+.trades{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.trd{background:var(--tile);border:1px solid var(--grout);border-radius:10px;padding:22px;display:grid;gap:8px;align-content:start}
+.trd svg{width:40px;height:40px}
+.trd h3{font-size:1.15rem}
+.trd p{font-size:.93rem;color:var(--muted)}
+@media (max-width:900px){.trades{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.trades{grid-template-columns:1fr}}
+
+/* 과정 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:2px solid var(--ink)}
+.step{padding:20px 20px 0 0;display:grid;gap:6px;align-content:start}
+.step b{font-family:var(--mono);font-size:.85rem;color:var(--accent)}
+.step h3{font-size:1.1rem}
+.step p{font-size:.93rem;color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr 1fr;row-gap:20px}}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:820px}
+details{background:var(--tile);border:1px solid var(--grout);border-radius:10px;padding:16px 20px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-family:var(--mono);color:var(--muted)}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--muted)}
+
+/* 상담 */
+.contact{background:var(--ink);color:var(--paper);border-radius:18px;padding:44px clamp(20px,4vw,48px);display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.contact h2{color:var(--paper)}
+.contact .side{display:grid;gap:18px;align-content:start}
+.contact .side p{color:color-mix(in srgb,var(--paper) 72%,var(--ink))}
+.tel{font-family:var(--mono);font-size:1.5rem;color:var(--accent);user-select:all}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form label{display:grid;gap:6px;font-size:.88rem;font-weight:500}
+form .full{grid-column:1/-1}
+input,select,textarea{font:400 1rem var(--body);padding:12px;border-radius:6px;border:1px solid transparent;background:var(--paper);color:var(--ink);width:100%}
+textarea{min-height:96px;resize:vertical}
+.agree{display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:.85rem}
+.agree input{width:auto;margin-top:4px}
+.done{grid-column:1/-1;background:color-mix(in srgb,var(--accent) 18%,var(--ink));border-radius:8px;padding:14px;font-size:.92rem}
+@media (max-width:860px){.contact{grid-template-columns:1fr}form{grid-template-columns:1fr}}
+
+footer{padding-block:40px;color:var(--muted);font-size:.85rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (prefers-reduced-motion:reduce){.typed::after{animation:none}}
+
+html{scroll-behavior:smooth}
+body{margin:0}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><i><b></b><b></b><b></b><b></b></i>DBR커뮤니케이션</a>
+    <nav class="menu">
+      <a href="#about">회사소개</a><a href="#service">하는 일</a><a href="#ai">AI 마케팅</a><a href="#trades">대상 업종</a><a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <a class="btn" href="#contact">무료 상담</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">인테리어 · 줄눈 · 탄성 · 집수리 전문 마케팅</p>
+      <h1 style="margin-top:14px">사장님은 현장에서 일하세요.<br><em>전화는 저희가 울리게</em> 하겠습니다.</h1>
+      <p class="lead">복잡한 홈페이지는 필요 없습니다. 고객이 검색하고, 들어와서, 연락처를 남기면 끝. DBR커뮤니케이션은 그 한 가지 흐름을 위해 홈페이지 제작과 네이버 키워드광고를 함께 맡고, AI로 광고 문구와 키워드를 계속 다듬습니다.</p>
+      <div class="cta"><a class="btn" href="#contact">상담 신청하기</a><a class="btn ghost" href="#service">하는 일 보기</a></div>
+      <div class="chips"><span class="chip">원페이지 홈페이지</span><span class="chip">네이버 파워링크</span><span class="chip">AI 광고문구</span><span class="chip">상담 접수 알림</span></div>
+    </div>
+
+    <div class="serp" aria-label="네이버 검색 결과 예시">
+      <div class="sbar"><span>N</span><div class="q typed" id="q">진주 욕실 줄눈시공</div></div>
+      <div class="plabel"><span>파워링크</span><span>광고</span></div>
+      <div class="ad mine">
+        <div class="t" id="adT">줄눈 전문 ○○ — 사진 보내면 바로 견적</div>
+        <div class="u" id="adU">www.example-jullun.co.kr</div>
+        <div class="d" id="adD">욕실·현관·베란다 줄눈, 시공 사진 300건 공개. 지금 상담 남기면 당일 연락.</div>
+      </div>
+      <div class="ad dim"><div class="t">○○인테리어</div><div class="u">www.example-a.com</div><div class="d">인테리어 전문 업체입니다.</div></div>
+      <div class="ad dim"><div class="t">집수리 종합</div><div class="u">www.example-b.kr</div><div class="d">각종 수리 문의 환영.</div></div>
+      <p class="note">화면은 이해를 돕기 위한 예시입니다.</p>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap about">
+      <div class="head" style="margin:0">
+        <p class="eyebrow">회사소개</p>
+        <h2>현장 업체를 가장 잘 아는<br>작은 마케팅 회사</h2>
+      </div>
+      <div style="display:grid;gap:24px">
+        <p class="big">시공 업체 사장님에게 필요한 건 멋진 홈페이지가 아니라 <strong>오늘 걸려오는 상담 전화</strong>입니다. DBR커뮤니케이션은 1인·소규모 시공 업체가 부담 없이 시작할 수 있도록, 꼭 필요한 것만 만들고 광고비가 새지 않게 관리합니다.</p>
+        <dl class="facts">
+          <div><dt>우리가 만드는 것</dt><dd>연락처를 받는 데 집중한 한 페이지 홈페이지</dd></div>
+          <div><dt>우리가 관리하는 것</dt><dd>네이버 검색광고(파워링크) 키워드·입찰가·광고 문구</dd></div>
+          <div><dt>우리가 다른 점</dt><dd>AI로 키워드와 문구를 매주 다시 만들고, 사장님 말투로 다듬습니다</dd></div>
+          <div><dt>잘 맞는 업종</dt><dd>인테리어, 줄눈, 탄성코트, 집수리, 입주청소 등 지역 시공 업종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="service" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">하는 일</p>
+        <h2>세 가지가 한 줄로 이어집니다</h2>
+        <p>검색에 노출되고(광고), 들어와서 믿음이 가고(홈페이지), 연락처를 남기게 합니다(상담 폼). 그리고 AI가 그 흐름을 계속 손봅니다.</p>
+      </div>
+      <div class="tiles">
+        <article class="tile">
+          <span class="tag">SERVICE 1</span>
+          <h3>홈페이지 제작</h3>
+          <p>시공 사진, 하는 일, 연락처. 고객이 30초 안에 판단할 수 있는 한 페이지로 만듭니다.</p>
+          <ul><li>모바일 우선 원페이지 구성</li><li>전화·문자·카톡 바로 연결 버튼</li><li>상담 신청 폼 + 접수 알림</li><li>시공 사진 갤러리, 직접 올리기 가능</li></ul>
+        </article>
+        <article class="tile">
+          <span class="tag">SERVICE 2</span>
+          <h3>네이버 키워드광고</h3>
+          <p>"지역 + 시공명" 검색에 사장님 업체가 먼저 보이도록 파워링크를 세팅하고 관리합니다.</p>
+          <ul><li>시공 지역에 맞춘 키워드 설계</li><li>클릭 단가·예산 관리</li><li>효과 없는 키워드 정리</li><li>월간 리포트를 쉬운 말로 정리</li></ul>
+        </article>
+        <article class="tile ai">
+          <span class="tag">SERVICE 3</span>
+          <h3>AI 마케팅</h3>
+          <p>AI가 키워드를 넓히고 광고 문구를 여러 버전으로 써서 비교합니다. 반응 좋은 문구만 남깁니다.</p>
+          <ul><li>업종별 롱테일 키워드 발굴</li><li>광고 문구 A/B 버전 자동 작성</li><li>블로그·인스타 홍보 글 초안</li><li>상담 문의 응대 문구 정리</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ai" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">AI 마케팅 미리보기</p>
+        <h2>업종을 고르면 AI가 이런 걸 만들어 드립니다</h2>
+        <p>아래는 실제 작업 방식을 보여주는 예시입니다. 상담 후에는 사장님 지역과 시공 사진에 맞춰 새로 만듭니다.</p>
+      </div>
+      <div class="trade" role="group" aria-label="업종 선택">
+        <button type="button" data-k="int" aria-pressed="false">인테리어</button>
+        <button type="button" data-k="jul" aria-pressed="true">줄눈</button>
+        <button type="button" data-k="tan" aria-pressed="false">탄성코트</button>
+        <button type="button" data-k="fix" aria-pressed="false">집수리</button>
+      </div>
+      <div class="aidemo">
+        <div class="panel">
+          <h4>추천 키워드 예시</h4>
+          <div class="kw" id="kw"></div>
+          <p class="note">구분: 핵심 = 검색량이 많고 경쟁도 큼 / 세부 = 단가가 낮고 의도가 분명함</p>
+        </div>
+        <div class="panel">
+          <h4>광고 문구 예시</h4>
+          <div class="copy" id="copy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="trades" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">대상 업종</p>
+        <h2>이런 사장님과 일합니다</h2>
+      </div>
+      <div class="trades">
+        <div class="trd">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 34V16L20 6l14 10v18z" fill="none"/><path d="M15 34V23h10v11"/></svg>
+          <h3>인테리어</h3><p>부분 리모델링부터 전체 시공까지. 포트폴리오를 보여주고 견적 문의를 받는 구조.</p>
+        </div>
+        <div class="trd">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="6" y="6" width="28" height="28" rx="2"/><path d="M20 6v28M6 20h28"/></svg>
+          <h3>줄눈</h3><p>욕실·현관·베란다 줄눈. 시공 전후 사진이 곧 영업이라 갤러리를 크게 둡니다.</p>
+        </div>
+        <div class="trd">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 30h24M12 30V12h16v18"/><path d="M28 16c4 0 4 6 0 6"/><path d="M15 12V8h10v4"/></svg>
+          <h3>탄성코트</h3><p>베란다·다용도실 결로·곰팡이 고민 고객을 입주 시기에 맞춰 잡습니다.</p>
+        </div>
+        <div class="trd">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M24 8a7 7 0 0 0-8 9L7 26l7 7 9-9a7 7 0 0 0 9-8l-4 4-5-1-1-5z"/></svg>
+          <h3>집수리</h3><p>누수, 문짝, 조명, 수전 교체. "근처 집수리" 급한 검색을 전화로 바로 연결.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">진행 과정</p>
+        <h2>상담부터 광고 시작까지</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><b>STEP 1</b><h3>무료 상담</h3><p>업종, 시공 지역, 원하는 예산을 듣습니다.</p></div>
+        <div class="step"><b>STEP 2</b><h3>자료 받기</h3><p>시공 사진과 연락처만 보내주시면 됩니다.</p></div>
+        <div class="step"><b>STEP 3</b><h3>제작·세팅</h3><p>홈페이지 제작과 파워링크 키워드를 함께 세팅합니다.</p></div>
+        <div class="step"><b>STEP 4</b><h3>운영·개선</h3><p>AI로 문구와 키워드를 바꿔가며 문의를 늘립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">자주 묻는 질문</p><h2>사장님들이 많이 물어보십니다</h2></div>
+      <div class="faq">
+        <details><summary>컴퓨터를 잘 못 다루는데 괜찮을까요?</summary><p>괜찮습니다. 사진과 연락처만 카톡으로 보내주시면 나머지는 저희가 합니다. 상담 접수는 문자나 카톡으로 받아보실 수 있게 해드립니다.</p></details>
+        <details><summary>홈페이지만, 또는 광고만 맡길 수도 있나요?</summary><p>네. 다만 광고로 들어온 고객이 머무를 페이지가 있어야 효과가 나기 때문에 함께 진행하시는 걸 권해드립니다.</p></details>
+        <details><summary>광고비는 얼마나 들어가나요?</summary><p>지역과 업종, 경쟁 정도에 따라 다릅니다. 상담 때 사장님 지역 키워드의 예상 클릭 단가를 확인해서 예산 범위를 함께 정합니다.</p></details>
+        <details><summary>AI 마케팅이 정확히 뭔가요?</summary><p>AI로 키워드 후보를 넓게 찾고, 광고 문구를 여러 버전으로 만들어 반응을 비교합니다. 사람이 최종 검토해서 사장님 업체에 맞는 말투로 다듬습니다.</p></details>
+        <details><summary>제작 기간은 얼마나 걸리나요?</summary><p>자료가 준비되면 보통 1주일 안팎이면 홈페이지와 광고 세팅을 마칩니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div class="side">
+          <p class="eyebrow" style="color:var(--accent)">무료 상담</p>
+          <h2>연락처만 남겨주세요.<br>먼저 전화드리겠습니다.</h2>
+          <p>업종과 지역을 알려주시면 상담 때 예상 키워드와 광고 예시를 미리 준비해 갑니다.</p>
+          <div><p style="font-size:.85rem">전화 상담</p><div class="tel">010-0000-0000</div></div>
+        </div>
+        <form id="f" novalidate>
+          <label>상호 / 성함<input id="f-name" name="name" required placeholder="예) 반짝줄눈 김사장"></label>
+          <label>연락처<input id="f-tel" name="tel" type="tel" required placeholder="010-1234-5678"></label>
+          <label>업종<select id="f-type" name="type"><option>인테리어</option><option>줄눈</option><option>탄성코트</option><option>집수리</option><option>기타</option></select></label>
+          <label>시공 지역<input id="f-area" name="area" placeholder="예) 진주, 사천"></label>
+          <label class="full">필요한 것<select id="f-need" name="need"><option>홈페이지 + 네이버 광고</option><option>홈페이지만</option><option>네이버 광고만</option><option>잘 모르겠어요, 상담 원해요</option></select></label>
+          <label class="full">남길 말씀 (선택)<textarea id="f-msg" name="msg" placeholder="편한 통화 시간 등을 적어주세요"></textarea></label>
+          <label class="agree full"><input id="f-agree" name="agree" type="checkbox" required>상담을 위한 개인정보(이름, 연락처) 수집·이용에 동의합니다.</label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="full"><button class="btn" type="submit" style="width:100%">상담 신청하기</button></div>
+          <div class="done" id="done" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>DBR커뮤니케이션 · 홈페이지 제작 · 네이버 키워드광고 · AI 마케팅</span>
+    <span>대표 ○○○ · 사업자등록번호 000-00-00000</span>
+  </footer>
+</main>
+
+<script>
+const DATA={
+  int:{q:"진주 아파트 인테리어",kw:[["진주 인테리어","핵심"],["진주 아파트 리모델링","핵심"],["진주 욕실 리모델링","세부"],["진주 30평 인테리어 견적","세부"],["진주 부분 인테리어","세부"]],
+    copy:[["30평 아파트 인테리어, 실제 견적 공개","진주 지역 시공 사진과 공정표를 그대로 보여드립니다."],["욕실만 바꿔도 집이 달라집니다","부분 시공 상담 환영. 현장 방문 견적 무료."]]},
+  jul:{q:"진주 욕실 줄눈시공",kw:[["줄눈시공","핵심"],["진주 줄눈","핵심"],["욕실 줄눈 가격","세부"],["현관 줄눈 시공","세부"],["입주 줄눈 케라폭시","세부"]],
+    copy:[["사진 보내면 바로 줄눈 견적","욕실·현관·베란다, 시공 전후 사진으로 확인하세요."],["입주 전 줄눈, 날짜 먼저 잡으세요","입주 일정 맞춤 시공. 오늘 문의 시 당일 연락."]]},
+  tan:{q:"사천 베란다 탄성코트",kw:[["탄성코트","핵심"],["사천 탄성코트","핵심"],["베란다 결로 곰팡이","세부"],["다용도실 탄성코트 가격","세부"],["입주 탄성코트 시공","세부"]],
+    copy:[["베란다 곰팡이, 탄성코트로 끝내세요","결로가 생기는 이유부터 설명드립니다. 시공 사진 공개."],["입주 전 베란다 탄성 한 번에","하루 시공, 냄새 걱정 줄인 자재 사용."]]},
+  fix:{q:"진주 집수리 업체",kw:[["집수리","핵심"],["진주 집수리","핵심"],["싱크대 누수 수리","세부"],["욕실 수전 교체","세부"],["방문 경첩 수리 출장","세부"]],
+    copy:[["작은 수리도 바로 갑니다","누수·수전·문짝·조명, 사진 보내시면 출장비 포함 안내."],["급한 집수리, 오늘 연락드립니다","진주 전 지역 출장. 상담 남기면 순서대로 전화."]]}
+};
+const kwEl=document.getElementById("kw"),copyEl=document.getElementById("copy"),qEl=document.getElementById("q");
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function show(k){
+  const d=DATA[k];
+  kwEl.innerHTML=d.kw.map(([w,t])=>`<div><span>${esc(w)}</span><span>${t}</span></div>`).join("");
+  copyEl.innerHTML=d.copy.map(([t,s],i)=>`<div><div class="t">${i?"B안":"A안"} · ${esc(t)}</div><div>${esc(s)}</div></div>`).join("");
+  qEl.textContent=d.q;
+  document.getElementById("adT").textContent=d.copy[0][0];
+  document.getElementById("adD").textContent=d.copy[0][1];
+  document.querySelectorAll(".trade button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));
+}
+document.querySelectorAll(".trade button").forEach(b=>b.addEventListener("click",()=>show(b.dataset.k)));
+show("jul");
+
+document.getElementById("f").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const f=e.target,done=document.getElementById("done"),btn=f.querySelector("button[type=submit]");
+  const name=f.name.value.trim(),tel=f.tel.value.trim();
+  done.hidden=false;
+  if(!name||!tel){done.textContent="상호/성함과 연락처를 입력해주세요.";return}
+  if(!f.agree.checked){done.textContent="개인정보 수집·이용 동의에 체크해주세요.";return}
+  btn.disabled=true;btn.textContent="보내는 중...";
+  try{
+    const r=await fetch("contact.php",{method:"POST",body:new FormData(f)});
+    const j=await r.json();
+    if(j.ok){done.textContent=name+"님, 상담 신청이 접수되었습니다. 곧 연락드리겠습니다.";f.reset();}
+    else done.textContent=j.msg||"접수 중 문제가 생겼습니다. 전화로 연락 부탁드립니다.";
+  }catch(err){done.textContent="접수 중 문제가 생겼습니다. 전화로 연락 부탁드립니다.";}
+  btn.disabled=false;btn.textContent="상담 신청하기";
+});
+</script>
+
+</body>
+</html>
